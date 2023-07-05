@@ -7,7 +7,7 @@ export const Category = () => {
     <div className={s.category}>
       <h2 className={cn(fs.title, s.categoryTitle)}>Каталог</h2>
       <ul className={s.categoryList}>
-        <li>
+        <li className={s.categoryItem}>
           <h3 className={s.categorySubtitle}>
             Женщины
           </h3>
@@ -32,7 +32,7 @@ export const Category = () => {
             </li>
           </ul>
         </li>
-        <li>
+        <li className={s.categoryItem}>
           <h3 className={s.categorySubtitle}>
             Мужчины
           </h3>
