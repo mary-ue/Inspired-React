@@ -4,7 +4,6 @@ import fs from './../Footer.module.scss';
 import { NavLink } from 'react-router-dom';
 
 export const Category = ({list}) => {
-  console.log(list)
   return (
     <div className={s.category}>
       <h2 className={cn(fs.title, s.categoryTitle)}>Каталог</h2>
