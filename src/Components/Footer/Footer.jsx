@@ -7,12 +7,12 @@ import s from './Footer.module.scss';
 import { Social } from './Social/Social';
 // import cn from 'classnames';
 
-export const Footer = ({list}) => {
+export const Footer = () => {
   return (
     <footer>
       <Container>
         <div className={s.container}>
-          <Category list={list} />
+          <Category  />
           <Social />
           <Contacts />
           <Copyright />
