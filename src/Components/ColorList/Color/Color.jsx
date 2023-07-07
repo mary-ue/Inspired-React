@@ -1,16 +1,13 @@
-import { useSelector } from 'react-redux';
 import s from './Color.module.scss';
 
-export const Color = ({ colorRef }) => {
-  const { colorList } = useSelector(state => state.color);
-  const color = colorList.find(color => color.id === colorRef?.id);
-
+export const Color = ({ colorRef, color, isActive, onClick }) => {
   return (
-    <li ref={colorRef} className={s.color}>
-      <div
-        className={`${s.innerColor} ${colorRef?.id === colorList[0]?.id ? s.colorCheck : ''}`}
-        style={{ backgroundColor: color?.code }}
-      />
+    <li
+      ref={colorRef}
+      className={`${s.color} ${isActive ? s.colorCheck : ''}`}
+      onClick={onClick}
+    >
+      <div className={s.innerColor} style={{ backgroundColor: color }} />
     </li>
   );
 };
