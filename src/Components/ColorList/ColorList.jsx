@@ -1,19 +1,29 @@
+import { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import s from './ColorList.module.scss';
 import { Color } from './Color/Color.jsx';
 
 export const ColorList = ({ colors }) => {
-  console.log('colors: ', colors);
   const { colorList } = useSelector(state => state.color);
-  console.log('colorList: ', colorList);
+
+  const colorRefs = useRef([]);
+
+  useEffect(() => {
+    colors?.forEach((id, index) => {
+      const colorRef = colorRefs.current[index];
+      const color = colorList.find(color => color.id === id);
+      if (color && colorRef) {
+        colorRef.style.setProperty('--data-color', color.code);
+      }
+    });
+  }, [colorList, colors]);
 
   return (
     <ul className={s.colorList}>
-      {colors?.map((id, i) => {
-        const color = colorList.find(color => color.id === id);
-        return <Color key={id} color={color?.code} check={!i} />
+      {colors?.map((id, index) => {
+        return <Color key={id} colorRef={el => (colorRefs.current[index] = el)} />;
       })}
     </ul>
-  )
+  );
+};
 
-}
