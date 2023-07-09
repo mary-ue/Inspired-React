@@ -11,7 +11,7 @@ const { activeGender, genderList, categories } = useSelector(state => state.navi
       {genderList.map((gender) => {
         return (
           <li key={gender} className={s.item}>
-            <NavLink className={({isActive}) => cn(s.link, (isActive || gender === activeGender) && s.linkActive)} to={gender}>
+            <NavLink className={({isActive}) => cn(s.link, (isActive || gender === activeGender) && s.linkActive)} to={`/catalog/${gender}`}>
               {categories[gender].title}
             </NavLink>
           </li>

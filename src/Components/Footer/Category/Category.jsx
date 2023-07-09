@@ -15,7 +15,7 @@ export const Category = () => {
           return (
             <li key={gender} className={s.categoryItem}>
               <h3 className={s.categorySubtitle}>
-                <NavLink className={s.link} to={gender}>
+                <NavLink className={s.link} to={`/catalog/${gender}`}>
                   {categories[gender].title}
                 </NavLink>
               </h3>
@@ -23,7 +23,7 @@ export const Category = () => {
                 {categories[gender].list.map((category) => {
                   return (
                     <li key={category.slug}>
-                      <NavLink className={fs.link} to={`${gender}/${category.slug}`}>
+                      <NavLink className={fs.link} to={`/catalog/${gender}/${category.slug}`}>
                         {category.title}
                       </NavLink>
                     </li>
