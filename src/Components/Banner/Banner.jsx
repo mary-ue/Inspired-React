@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Container } from '../Layout/Container/Container';
 import s from './Banner.module.scss';
 import { API_URL } from '../../const';
@@ -23,6 +23,13 @@ export const Banner = ({ data }) => {
       setBgImage(data.bg.desktop);
     }
   }, [isMobile, isTablet, isLaptop, data.bg.desktop, data.bg.laptop, data.bg.mobile, data.bg.tablet]);
+
+  const location = useLocation();
+
+  const showBanner = location.pathname.split('/').length === 3;
+  if (!showBanner) {
+    return null; 
+  }
 
   return (
     data && (
