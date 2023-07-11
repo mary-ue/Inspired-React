@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Container } from '../Layout/Container/Container';
 import s from './Banner.module.scss';
 import { API_URL } from '../../const';
