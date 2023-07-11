@@ -10,32 +10,25 @@ export const Banner = ({ data }) => {
   const isTablet = useMedia('(max-width: 768px)');
   const isLaptop = useMedia('(max-width: 1024px)');
 
-  const [bgImage, setBgImage] = useState(data.bg.desktop);
+  const [bgImage, setBgImage] = useState('');
 
   useEffect(() => {
     if (isMobile) {
-      setBgImage(data.bg.mobile);
+      setBgImage(`${API_URL}/${data?.bg.mobile}`);
     } else if (isTablet) {
-      setBgImage(data.bg.tablet);
+      setBgImage(`${API_URL}/${data?.bg.tablet}`);
     } else if (isLaptop) {
-      setBgImage(data.bg.laptop);
+      setBgImage(`${API_URL}/${data?.bg.laptop}`);
     } else {
-      setBgImage(data.bg.desktop);
+      setBgImage(`${API_URL}/${data?.bg.desktop}`);
     }
-  }, [isMobile, isTablet, isLaptop, data.bg.desktop, data.bg.laptop, data.bg.mobile, data.bg.tablet]);
-
-  const location = useLocation();
-
-  const showBanner = location.pathname.split('/').length === 3;
-  if (!showBanner) {
-    return null; 
-  }
+  }, [isMobile, isTablet, isLaptop, data]);
 
   return (
     data && (
       <section
         className={s.banner}
-        style={{ backgroundImage: `url(${API_URL}/${bgImage})` }}
+        style={{ backgroundImage: `url(${bgImage})` }}
       >
         <Container>
           <div className={s.content}>

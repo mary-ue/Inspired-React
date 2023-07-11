@@ -2,7 +2,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import { MainPage } from "./Components/Main/MainPage";
 import { Root } from "./routes/Root";
 import { ErrorPage } from "./Components/ErrorPage/ErrorPage";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchNavigation } from "./features/navigationSlice";
 import { fetchColors } from "./features/colorSlice";
