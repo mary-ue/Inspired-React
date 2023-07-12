@@ -9,6 +9,7 @@ import cn from 'classnames';
 import { ColorList } from '../ColorList/ColorList';
 import { ReactComponent as Like } from '../../assets/heart.svg';
 import { Count } from '../Count/Count';
+import { ProductSize } from '../ProductSize/ProductSize';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -58,7 +59,7 @@ export const ProductPage = () => {
               handleColorChange={handleColorChange}
             />
           </div>
-          {/* <ProductSize size={product.size} /> */}
+          <ProductSize size={product.size} />
           <div className={s.description}>
             <p className={cn(s.subtitle, s.descriptionTitle)}>Описание</p>
             <p className={s.descriptionText}>{product.description}</p>
