@@ -11,11 +11,14 @@ import { ReactComponent as Like } from '../../assets/heart.svg';
 import { Count } from '../Count/Count';
 import { ProductSize } from '../ProductSize/ProductSize';
 import { Goods } from '../Goods/Goods';
+import { fetchCategory } from '../../features/goodsSlice';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { product } = useSelector((state) => state.product);
+
+  const { gender, category } = product;
 
   const [count, setCount] = useState(1);
   const [selectedColor, setSelectedColor] = useState('');
@@ -43,11 +46,15 @@ export const ProductPage = () => {
     dispatch(fetchProduct(id));
   }, [id, dispatch]);
 
+  useEffect(() => {
+    dispatch(fetchCategory({gender, category, count: 4, top: true, exclude: id}));
+  }, [gender, category, id, dispatch])
+
   return (
     <>
       <section className={s.card}>
         <Container className={s.container}>
-          <img
+          <img className={s.image}
             src={`${API_URL}/${product.pic}`}
             alt={`${product.title} ${product.description}`}
           ></img>
@@ -81,11 +88,7 @@ export const ProductPage = () => {
           </form>
         </Container>
       </section>
-      <section>
-      <Container className={s.container}>
-        <Goods />
-      </Container>
-      </section>
+      <Goods title={'Вам также может понравиться'}/>
     </>
   );
 };
