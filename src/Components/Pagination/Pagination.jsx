@@ -3,6 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import s from './Paginataion.module.scss';
 import cn from "classnames";
 import { setPage } from "../../features/goodsSlice";
+import { ReactComponent as ArrowLeft } from '../../assets/ArrowLeft.svg';
+import { ReactComponent as ArrowRight } from '../../assets/ArrowRight.svg';
 
 export const Pagination = () => {
   const pathname = useLocation().pathname;
@@ -46,11 +48,15 @@ export const Pagination = () => {
 
   return (
     <div className={s.pagination}>
-      <button className={s.arrow} onClick={handlePrevPage} disabled={page <= 2}>&lt;</button>
+      <button className={s.arrow} onClick={handlePrevPage} disabled={page <= 2}>
+        <ArrowLeft />
+      </button>
       <ul className={s.list}>
         {renderPaginationItems()}
       </ul>
-      <button className={s.arrow} onClick={handleNextPage} disabled={page >= pages - 1 || pages <= 3}>&gt;</button>
+      <button className={s.arrow} onClick={handleNextPage} disabled={page >= pages - 1 || pages <= 3}>
+        <ArrowRight />
+      </button>
     </div>
   )
 }
