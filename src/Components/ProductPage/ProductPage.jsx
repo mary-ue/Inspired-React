@@ -7,11 +7,11 @@ import { useParams } from 'react-router-dom';
 import { API_URL } from '../../const';
 import cn from 'classnames';
 import { ColorList } from '../ColorList/ColorList';
-import { ReactComponent as Like } from '../../assets/heart.svg';
 import { Count } from '../Count/Count';
 import { ProductSize } from '../ProductSize/ProductSize';
 import { Goods } from '../Goods/Goods';
 import { fetchCategory } from '../../features/goodsSlice';
+import { BtnLike } from '../BtnLike/BtnLike';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ export const ProductPage = () => {
               <Count className={s.count} count={count} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
               <button className={s.addCart} type='submit'>В корзину</button>
               <button className={s.favorite} type='button' aria-label='Добавить в избранное'>
-                <Like />
+                <BtnLike id={id} />
               </button>
             </div>
           </form>

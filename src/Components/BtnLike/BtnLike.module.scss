@@ -1,0 +1,12 @@
+.like {
+  color: transparent;
+  transition: color .3s linear;
+
+  &:hover {
+    color: tomato;
+  }
+}
+
+.active {
+  color: crimson;
+}

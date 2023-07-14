@@ -83,3 +83,16 @@
     line-height: 18px;
   }
 }
+
+.like {
+  color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: tomato;
+  }
+
+  &:active {
+    color: crimson;
+  }
+}
