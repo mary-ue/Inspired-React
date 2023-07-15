@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import s from './Paginataion.module.scss';
 import cn from "classnames";
