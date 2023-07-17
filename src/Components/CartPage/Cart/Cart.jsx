@@ -16,7 +16,7 @@ export const Cart = ({ cartItems, goodsList }) => {
     <section className={s.cart}>
       <Container>
         <h2 className={s.title}>Корзина</h2>
-        {goodsList.length? 
+        {cartItems.length? 
           <ul className={s.list}>
             {cartItems.map(item => {
               return (

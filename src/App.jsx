@@ -35,7 +35,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchNavigation());
     dispatch(fetchColors());
-  }, [dispatch]);
+  }, [dispatch]); 
 
   return (
     <RouterProvider router={router}>
