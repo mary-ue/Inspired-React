@@ -3,10 +3,14 @@ import { Container } from '../../Layout/Container/Container';
 import s from './Order.module.scss';
 import { PatternFormat } from 'react-number-format';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { sendOrder } from '../../../features/cartSlice';
 
 export const Order = ({ cartItems }) => {
+  const dispatch = useDispatch();
+
   const handleSubmitOrder = (values) => {
-    console.log({ cartItems, values });
+    dispatch(sendOrder({order: cartItems, values}));
   };
 
   const validationSchema = Yup.object({

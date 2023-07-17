@@ -22,7 +22,7 @@ export const SearchPage = () => {
 
   return (
     goodsList.length ? 
-    <Goods title="Поиск" /> :
+    <Goods title="Результаты поиска" /> :
     <h3 className={s.empty}>Ничего не найдено по ваему запросу {searchParams.get('q')}</h3>
   )
 }
